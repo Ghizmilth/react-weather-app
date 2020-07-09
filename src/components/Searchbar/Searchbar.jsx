@@ -4,25 +4,25 @@ import React, { useState } from 'react';
 const Searchbar = (props) => {
 
     const { updateSelectedCity } = props;
-    const initialInputState = { city: " " };
-    const [newCity, setCity] = useState(initialInputState);
-    const city = newCity;
+    const [newCity, setCity] = useState("");
+
 
     const handleChange = e => {
-        setCity({...newCity, [e.target.name]: e.target.value});
+        setCity(e.target.value);
+        console.log(newCity);
     }
 
     const handleSubmit = e => {
-        updateSelectedCity(city.cityName);
+        updateSelectedCity(newCity);
         e.preventDefault();
     }
 
-    console.log(city);
+    console.log(newCity);
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input name="cityName" placeholder="Input City" onChange={handleChange}  />
+                <input name="cityName" placeholder="Input City" onChange={handleChange} />
                 <input type="submit" value="Check Weather"/>
             </form>
         </div>

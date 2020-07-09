@@ -5,8 +5,8 @@ import React from 'react';
 const Cards = (props) => {
 
 
-
-    const { selectedCity } = props;
+    console.log("this are in card: " + props);
+    const {selectedCity}  = props;
 
 
     return (
