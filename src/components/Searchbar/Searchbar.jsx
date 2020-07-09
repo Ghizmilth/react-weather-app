@@ -5,25 +5,25 @@ const Searchbar = (props) => {
 
     const { updateSelectedCity } = props;
     const initialInputState = { city: " " };
-    const [eachCity, setCity] = useState(initialInputState);
-    const city = eachCity;
+    const [newCity, setCity] = useState(initialInputState);
+    const city = newCity;
 
     const handleChange = e => {
-        setCity({eachCity, [e.target.name]: e.target.value});
+        setCity({...newCity, [e.target.name]: e.target.value});
     }
 
     const handleSubmit = e => {
+        updateSelectedCity(city.cityName);
         e.preventDefault();
-        updateSelectedCity(eachCity);
     }
 
     console.log(city);
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <input name="cityName" placeholder="Input City" onChange={handleChange}  />
-                <input type="submit" value="Check Weather" onSubmit={handleSubmit} />
+                <input type="submit" value="Check Weather"/>
             </form>
         </div>
     )
