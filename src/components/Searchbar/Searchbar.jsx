@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { fetchWeather } from '../../api';
 
 
@@ -7,29 +7,23 @@ const Searchbar = (props) => {
     const { updateSelectedCity } = props;
     const [newCity, setCity] = useState("")
 
-    const [apiData, setData] = useState({});
+    let apiData = {};
 
-    // useEffect( () => {
-        const fetchAPI = async () => {
-            setData(await fetchWeather(newCity));
-        }
+    const fetchAPI = async () => {
+        apiData = (await fetchWeather(newCity));
 
-    // });
-
-    console.log(apiData);
-
+    }
     const handleChange = e => {
         setCity(e.target.value);
-        console.log(newCity);
     }
 
     const handleSubmit = e => {
-        updateSelectedCity(newCity);
-        fetchAPI();
         e.preventDefault();
+        updateSelectedCity(newCity);
+
+        fetchAPI();
     }
 
-    console.log(newCity);
 
     return (
         <div>
