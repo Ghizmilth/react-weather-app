@@ -12,7 +12,7 @@ export const fetchWeather = async (city) => {
                     "x-rapidapi-key":"90e168cd4bmsh429567830c6d00fp1363b4jsneeb95050d853",
                     "useQueryString":true
                 },     params:{
-                    // 'callback':'JSONP',
+                    // 'callback':'test',
                     "units":"imperial",
                     "mode": "",
                     "q":city

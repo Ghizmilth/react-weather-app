@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import "./App.css";
 import { Searchbar, Cards } from './components';
+import { fetchWeather } from './api';
+
 
 function App() {
 
     // This is used to get info from Searchbar and pass it to Cards component
-    const [ selectedCity, setSelectedCity] = useState([]);
+    const [ selectedCity, setSelectedCity ] = useState([]);
 
 
-    const updateSelectedCity = newCity =>  {
-        setSelectedCity(newCity);
+    const updateSelectedCity = async (newCity) =>  {
+        setSelectedCity(await fetchWeather(newCity));
     };
 
-    console.log("this is CURRENT city:   " + selectedCity);
+    console.log(selectedCity);
 
       return (
         <div className="App">

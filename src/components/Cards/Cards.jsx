@@ -1,17 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 
-const Cards = (props) => {
+const Cards = (props)  => {
 
-
-    console.log("this are in card: " + props.data);
-    const {selectedCity}  = props;
-
+    const { selectedCity } = props;
+    console.log(selectedCity);
 
     return (
         <div>
-            {/*<p>{selectedCity}</p>*/}
+            <p>This is Cards component of { selectedCity.cod } </p>
+            <p>This is Cards component of { selectedCity.id } </p>
         </div>
     )
 };
