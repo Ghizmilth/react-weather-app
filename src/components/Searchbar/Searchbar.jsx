@@ -6,13 +6,14 @@ const Searchbar = (props) => {
     const { updateSelectedCity } = props;
     const [newCity, setCity] = useState("");
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         setCity(e.target.value);
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         updateSelectedCity(newCity);
+        e.target.reset();
         console.log(newCity);
     }
 
