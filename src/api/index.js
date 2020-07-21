@@ -1,7 +1,7 @@
 import axios from 'axios';
+require('dotenv').config();
 
 const url = 'https://community-open-weather-map.p.rapidapi.com/weather';
-
 
 export const fetchWeather = async (city) => {
     try{
@@ -9,10 +9,9 @@ export const fetchWeather = async (city) => {
             { headers: {
                     "content-type":"application/octet-stream",
                     "x-rapidapi-host":"community-open-weather-map.p.rapidapi.com",
-                    "x-rapidapi-key":"90e168cd4bmsh429567830c6d00fp1363b4jsneeb95050d853",
+                    "x-rapidapi-key": process.env.REACT_APP_WEATHER_API_KEY,
                     "useQueryString":true
                 },     params:{
-                    // 'callback':'test',
                     "units":"imperial",
                     "mode": "",
                     "q":city
