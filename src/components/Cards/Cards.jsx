@@ -1,31 +1,39 @@
 import React from 'react';
+import { Card, Typography, CardContent } from "@material-ui/core";
+import styles from './Cards.module.css';
+
 
 const Cards = ({ selectedCity: { name, coord, main, visibility, wind, weather, sys, timezone} })  => {
 
-    // const { selectedCity } = props;
-    console.log(name);
-    // const today = new Date();
-    // const dd = String(today.getDate()).padStart(2, '0');
-    // const mm = String(today.getMonth() + 1).padStart(2, '0');
-    // const yyyy = today.getFullYear();
-
     if(coord == null){
-        return "Select your City";
+        return "";
     } else {
+
         return (
             <div>
-            City: {name}, {sys['country']} <br />
-            Sunrise: { sys.sunrise } <br/>
-            Sunset: { sys.sunset } <br/>
-            Coordinates: Longitude and Latitude: { coord['lon'] }, { coord['lat'] } <br />
-            Current Temperature: {main['temp']}, {weather[0].description}<br />
-            Fees Like: {main.feels_like}<br />
-            Max Temp: {main.temp_max}, Min Temp: {main.temp_min}<br />
-            Humidity: {main.humidity}<br />
-            Visibility: {visibility}<br />
-            Wind: {wind.speed}<br />
+            <Card className={styles.root}>
+            <CardContent>
+                <Typography className={styles.title} gutterBottom>
+                    {name}, {sys['country']}
+                </Typography>
+                <Typography variant="h5" component="h2">
+                    {main['temp']}°F
+                </Typography>
+                <Typography className={styles.pos}>
+                    Feels like: {main.feels_like}°F - Conditions: {weather[0].description}
+                </Typography>
+                <Typography variant="body2" component="p">
+                    Min temp: {main.temp_min}°F - Max temp: {main.temp_max}°F
+                </Typography>
+                <Typography variant="body2" component="p">
+                    Humidity: {main.humidity}%, Visibility: {visibility/1000} Miles
+                    <br />
+                    Wind: {wind.speed}mph
+                </Typography>
+            </CardContent>
+        </Card>
             </div>
-            // renderObject()
+
         )
     }
 

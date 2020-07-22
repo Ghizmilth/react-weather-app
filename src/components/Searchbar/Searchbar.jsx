@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import  SearchIcon  from "@material-ui/icons/Search";
+import { Button, Input } from "@material-ui/core";
+import styles from './Searchbar.module.css';
 
 
 const Searchbar = (props) => {
@@ -14,15 +17,21 @@ const Searchbar = (props) => {
         e.preventDefault();
         updateSelectedCity(newCity);
         e.target.reset();
-        console.log(newCity);
     }
 
 
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <input name="cityName" placeholder="Input City" onChange={handleChange} />
-                <button type="submit">Check Weather</button>
+                <Input className="searchInput" name="cityName" color="primary" placeholder="e.g. San Francisco" inputProps={{ 'aria-label': 'description' }} onChange={handleChange}/>
+                <Button
+                    type="submit"
+                    color="primary"
+                    variant="contained"
+                    className={styles.button}
+                    startIcon={<SearchIcon />}
+                >
+                </Button>
             </form>
         </div>
     )

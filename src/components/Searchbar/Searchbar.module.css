@@ -1,0 +1,11 @@
+.button {
+    margin: 40px !important;
+}
+
+.buttonColor {
+    backgroundColor: linear-gradient( 109.6deg, rgba(118,207,233,1) 40.2%, rgba(39,125,114,1) 142.2% ) !important;
+}
+
+.searchInput {
+    margin: 20px !important;
+}
