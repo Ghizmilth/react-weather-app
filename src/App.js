@@ -17,7 +17,7 @@ function App() {
           <div className="App">
           <Container maxWidth="md">
                   <Typography variant="h3"  gutterBottom>
-                      Check the weather in any city in the world!
+                      Check the weather in any city in the world.
                   </Typography>
                   <Searchbar updateSelectedCity={updateSelectedCity} />
               <Cards selectedCity={selectedCity}/>
