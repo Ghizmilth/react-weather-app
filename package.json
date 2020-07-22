@@ -24,7 +24,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
+  "browserslist": {n
     "production": [
       ">0.2%",
       "not dead",
