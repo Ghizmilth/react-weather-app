@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import "./App.css";
 import { Searchbar, Cards } from './components';
 import { fetchWeather } from './api';
-
+import {Container, Typography} from "@material-ui/core";
 
 function App() {
 
-    // This is used to get info from Searchbar and pass it to Cards component
     const [ selectedCity, setSelectedCity ] = useState([]);
 
 
@@ -14,13 +13,17 @@ function App() {
         setSelectedCity(await fetchWeather(newCity));
     };
 
-    console.log(selectedCity);
-
       return (
-        <div className="App">
-          <Searchbar updateSelectedCity={updateSelectedCity} />
-          <Cards selectedCity={selectedCity}/>
-        </div>
+          <div className="App">
+          <Container maxWidth="md">
+                  <Typography variant="h3"  gutterBottom>
+                      Check the weather in any city in the world!
+                  </Typography>
+                  <Searchbar updateSelectedCity={updateSelectedCity} />
+              <Cards selectedCity={selectedCity}/>
+
+        </Container>
+          </div>
     )
 }
 
